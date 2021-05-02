@@ -1,5 +1,4 @@
 *.zip
-*.json
 /assets
 *.DS_Store
 *.ipynb
