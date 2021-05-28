@@ -41,14 +41,32 @@ def index():
         session['name8']=form.name8.data
 
 ###########Execute algorithm##############
+        #import dict
         with open('cleanedDict.json') as json_file:
             dictRef=json.load(json_file)
-        inputlist=[session['name1'],session['name2'],session['name3'],
-        session['name4'],session['name5'],session['name6'],session['name7'],session['name8']]
-        inputlist=list(filter(lambda item:item!=None,inputlist))
-        solution=Solution()
-        combination=list(set(solution.letterCombinations(inputList)))
+        #eliminate duplicated characters in a single word
+        name1=''.join(set([i.lower() for i in[session['name1']] if i.isalpha()]))
+        name2=''.join(set([i.lower() for i in[session['name2']] if i.isalpha()]))
+        name3=''.join(set([i.lower() for i in[session['name3']] if i.isalpha()]))
+        name4=''.join(set([i.lower() for i in[session['name4']] if i.isalpha()]))
+        name5=''.join(set([i.lower() for i in[session['name5']] if i.isalpha()]))
+        name6=''.join(set([i.lower() for i in[session['name6']] if i.isalpha()]))
+        name7=''.join(set([i.lower() for i in[session['name7']] if i.isalpha()]))
+        name8=''.join(set([i.lower() for i in[session['name8']] if i.isalpha()]))
+        #eliminate duplicated words and '' in list
+        inputList=set([name1,name2,name3,name4,name5,name6,name7,name8])
+        inputList=list(filter(lambda item:item!='',inputList))
 
+        solution=Solution()
+        combinations=solution.letterCombinations(inputList)
+        result=[]
+        for i in combinations:
+            permutationResult=solution.permute(i)
+            result.extend(list(permutationResult))
+        result=[i for i in result if i in dictRef]
+
+        session['result']=list(set(result))
+        session['length']=len(session['result'])
         return redirect(url_for('result'))
     return render_template('index.html',form=form)
 
