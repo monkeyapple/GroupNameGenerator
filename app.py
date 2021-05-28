@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField,SubmitField
 from wtforms.validators import Length
 from copy import deepcopy
+from algorithm import Solution
 import json
 
 app=Flask(__name__)
@@ -38,6 +39,16 @@ def index():
         session['name6']=form.name6.data
         session['name7']=form.name7.data
         session['name8']=form.name8.data
+
+###########Execute algorithm##############
+        with open('cleanedDict.json') as json_file:
+            dictRef=json.load(json_file)
+        inputlist=[session['name1'],session['name2'],session['name3'],
+        session['name4'],session['name5'],session['name6'],session['name7'],session['name8']]
+        inputlist=list(filter(lambda item:item!=None,inputlist))
+        solution=Solution()
+        combination=list(set(solution.letterCombinations(inputList)))
+
         return redirect(url_for('result'))
     return render_template('index.html',form=form)
 
