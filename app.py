@@ -5,11 +5,9 @@ from wtforms.validators import Length
 from copy import deepcopy
 from algorithm import Solution
 import json
-from flask_bootstrap import Bootstrap
 
 app=Flask(__name__)
 app.config['SECRET_KEY']='mysecretkey'
-Bootstrap(app)
 
 ###################################################
 ##################### Form #######################
@@ -32,6 +30,10 @@ class InputForm(FlaskForm):
 
 @app.route('/',methods=['GET','POST'])
 def index():
+    #import dict
+    with open('wordDict.json') as json_file:
+        wordDict=json.load(json_file)
+
     form=InputForm()
     if form.validate_on_submit():
         session['name1']=form.name1.data
@@ -44,9 +46,7 @@ def index():
         session['name8']=form.name8.data
 
 ###########Execute algorithm##############
-        #import dict
-        with open('cleanedDict.json') as json_file:
-            dictRef=json.load(json_file)
+
         #eliminate duplicated characters in a single word
         name1=''.join(set([i.lower() for i in[session['name1']] if i.isalpha()]))
         name2=''.join(set([i.lower() for i in[session['name2']] if i.isalpha()]))
@@ -62,17 +62,19 @@ def index():
 
         solution=Solution()
         combinations=solution.letterCombinations(inputList)
-        result=[]
+        results=[]
         for i in combinations:
             permutationResult=solution.permute(i)
-            result.extend(list(permutationResult))
-        result=[i for i in result if i in dictRef]
+            results.extend(list(permutationResult))
+        dictList=[i for i in results if i in wordDict]
+        dictResult = {wordDict[item][0]:item for item in dictList}
+        # order the result by word frequncy
+        sortdictResult = dict(sorted(dictResult.items(), key=lambda item: item[1]))
+        session['result']=sortdictResult
+        # session['length']=len(session['result'])
 
-        session['result']=list(set(result))
-        session['length']=len(session['result'])
-        return redirect(url_for('result'))
-    return render_template('index.html',form=form)
-
+        return redirect(url_for('index'))
+    return render_template('index.html',form=form,results=session.get('result'),wordDict=wordDict)
 
 @app.route('/result')
 def result():
