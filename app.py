@@ -33,7 +33,6 @@ def index():
     #import dict
     with open('wordDict.json') as json_file:
         wordDict=json.load(json_file)
-
     form=InputForm()
     if form.validate_on_submit():
         session['name1']=form.name1.data
@@ -74,7 +73,7 @@ def index():
         # session['length']=len(session['result'])
 
         return redirect(url_for('index'))
-    return render_template('index.html',form=form,results=session.get('result'),wordDict=wordDict)
+    return render_template('index.html',form=form,results=session.get('result',None),wordDict=wordDict)
 
 @app.route('/result')
 def result():

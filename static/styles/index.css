@@ -2,20 +2,54 @@ body{
   font-family:'Montserrat';
   font-weight: 400;
 }
-#inputArea{
-  background-color: #f5f7b2;
-  color:#1cc5dc;
-}
-.container-fluid{
-  padding:3% 10%;
-}
-.nameInput{
-  padding:3% 0;
-}
+
 
 h1{
   font-family:'Montserrat',sans-serif;
   font-size:3.5rem;
   line-height:1.5;
   font-weight:900;
+}
+
+/* sections */
+.yellow-section{
+  background-color: #f5f7b2;
+  padding:3% 10%;
+  color:#1cc5dc;
+}
+
+.blue-section{
+  background-color: #1cc5dc;
+  padding:3% 20%;
+}
+
+.red-section{
+  background-color: #cf0000;
+}
+
+/* Input Area */
+.nameInput{
+  padding:3% 0;
+}
+
+.accordion-button{
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.2rem;
+  font-weight:700;
+  background-color:#1cc5dc;
+}
+.accordion-body{
+  background-color:#1cc5dc;
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+ }
+
+/* footer */
+
+.social-icon{
+  margin:20px 10px;
+}
+.icon-section{
+  padding-bottom:20px
 }
