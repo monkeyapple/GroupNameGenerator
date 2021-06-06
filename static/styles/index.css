@@ -1,6 +1,7 @@
 body{
   font-family:'Montserrat';
   font-weight: 400;
+  background-color: #dc3545;
 }
 
 
@@ -9,6 +10,18 @@ h1{
   font-size:3.5rem;
   line-height:1.5;
   font-weight:900;
+}
+
+h2{
+  font-family:'Montserrat',sans-serif;
+  font-size:3.0rem;
+  line-height:1.5;
+  font-weight:400;
+}
+
+p{
+  color:#fff;
+  font-size:0.8rem;
 }
 
 /* sections */
@@ -24,7 +37,7 @@ h1{
 }
 
 .red-section{
-  background-color: #cf0000;
+  background-color: #dc3545;
 }
 
 /* Input Area */
@@ -32,6 +45,10 @@ h1{
   padding:3% 0;
 }
 
+.descriptions{
+  max-width: 700px;
+  color:#fff
+}
 .accordion-button{
   color:#fff;
   font-family:'Montserrat',sans-serif;
@@ -53,3 +70,6 @@ h1{
 .icon-section{
   padding-bottom:20px
 }
+/* #accordionFlushExample{
+  margin:5px 0px;
+} */

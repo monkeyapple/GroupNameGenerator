@@ -3,43 +3,84 @@
 
 <!-- Input Section -->
 <div class="container-fluid yellow-section id="inputArea">
+  <p></p>
   <form method="POST">
     <div class="row">
       <div class="col-lg-6">
-        <h1>Input up to 8 names,then choose your desired group name</h1>
+        <h1>Choose a great group name generated from names you provide</h1>
       </div>
       <div class="col-lg-6">
         {{form.hidden_tag()}}
         <div class="nameInput row">
           <div class="col">
             {{form.name1.label(class="form-control-label")}}{{form.name1(class="form-control")}}
+            {% if form.name1.errors %}
+              {% for error in form.name1.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
           <div class="col">
             {{form.name2.label(class="form-control-label")}}{{form.name2(class="form-control")}}
+            {% if form.name2.errors %}
+              {% for error in form.name2.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
         </div>
         <div class="nameInput row">
           <div class="col">
             {{form.name3.label(class="form-control-label")}}{{form.name3(class="form-control")}}
+            {% if form.name3.errors %}
+              {% for error in form.name3.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
           <div class="col">
             {{form.name4.label(class="form-control-label")}}{{form.name4(class="form-control")}}
+            {% if form.name4.errors %}
+              {% for error in form.name4.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
         </div>
         <div class="nameInput row">
           <div class="col">
             {{form.name5.label(class="form-control-label")}}{{form.name5(class="form-control")}}
+            {% if form.name5.errors %}
+              {% for error in form.name5.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
           <div class="col">
             {{form.name6.label(class="form-control-label")}}{{form.name6(class="form-control")}}
+            {% if form.name6.errors %}
+              {% for error in form.name6.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
         </div>
         <div class="nameInput row">
           <div class="col">
             {{form.name7.label(class="form-control-label")}}{{form.name7(class="form-control")}}
+            {% if form.name7.errors %}
+              {% for error in form.name7.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
           <div class="col">
             {{form.name8.label(class="form-control-label")}}{{form.name8(class="form-control")}}
+            {% if form.name8.errors %}
+              {% for error in form.name8.errors %}
+              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
+              {% endfor %}
+            {% endif %}
           </div>
         </div>
         <div class="d-grid col-3 mx-auto">
@@ -54,6 +95,10 @@
 <!-- Result Section -->
 <div class="container-fluid blue-section id="resultArea">
 {% if results!=None %}
+  <div class="descriptions p-3 pb-md-4 mx-auto text-center">
+    <h2 class="display-6 fw-normal">About the words ranking</h2>
+    <p class="fs-5 text-white">This tool will return a list of words as the result. Those words are ranked according to the Google Web Trillion Word Corpus. You can find more information about how the dataset was created <a href="http://norvig.com/ngrams/" class="text-reset">here</a>.</p>
+  </div>
   {% for result in results %}
     <div class="accordion" id="accordionFlushExample">
       <div class="accordion-item">
@@ -68,8 +113,14 @@
       </div>
     </div>
   {% endfor %}
+{% else %}
+<div class="descriptions p-3 pb-md-4 mx-auto text-center">
+  <h2 class="display-6 fw-normal">How to use this tool?</h2>
+  <p class="fs-5 text-white">You need to enter names (up to 8) and press the "Generate" button. This tool will pick up one letter from each name you provided and combine them in various ways.</p>
+</div>
 {% endif %}
 </div>
+
 
 <!-- Footer -->
 <div class="container-fluid red-section id="footerArea">
@@ -78,17 +129,9 @@
   <div class="container pt-4">
     <!-- Section: Social media -->
     <section class="mb-4 icon-section">
-      <!-- Facebook -->
-      <a class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
       <!-- Twitter -->
       <a class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="https://twitter.com/EffyLH20"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fab fa-twitter"></i
@@ -96,34 +139,43 @@
 
       <!-- Google -->
       <a class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="mailto:monkeyappleh@gmail.com"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fab fa-google"></i
       ></a>
-
-      <!-- Instagram -->
-      <a class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-      ></a>
       <!-- Github -->
       <a class="btn btn-link btn-floating btn-lg text-white m-1"
-        href="#!"
+        href="https://github.com/monkeyapple"
         role="button"
         data-mdb-ripple-color="dark"
         ><i class="fab fa-github"></i
       ></a>
+
+      <!-- Instagram -->
+      <!-- <a class="btn btn-link btn-floating btn-lg text-white m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-instagram"></i
+      ></a> -->
+
+      <!-- Linkedin -->
+      <!-- <a class="btn btn-link btn-floating btn-lg text-white m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a> -->
+
+      <!-- Facebook -->
+      <!-- <a class="btn btn-link btn-floating btn-lg text-white m-1"
+        href="#!"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-facebook-f"></i
+      ></a> -->
+      <p>© Copyright 2021 GroupNameGenerator</p>
     </section>
   </div>
     <!-- Section: Social media -->
