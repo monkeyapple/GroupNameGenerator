@@ -3,7 +3,7 @@
 .DS_Store
 *.ipynb
 *.csv
-flaskdeploy/
+/flaskdeploy
 __pycache__/
 *.pyc
 .idea/
