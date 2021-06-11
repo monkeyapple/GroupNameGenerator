@@ -6,5 +6,5 @@
 flaskdeploy/
 __pycache__/
 *.pyc
-.idea
+.idea/
 .ipynb_checkpoints
