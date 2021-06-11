@@ -65,24 +65,6 @@
             {% endif %}
           </div>
         </div>
-        <div class="nameInput row">
-          <div class="col">
-            {{form.name7.label(class="form-control-label")}}{{form.name7(class="form-control")}}
-            {% if form.name7.errors %}
-              {% for error in form.name7.errors %}
-              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
-              {% endfor %}
-            {% endif %}
-          </div>
-          <div class="col">
-            {{form.name8.label(class="form-control-label")}}{{form.name8(class="form-control")}}
-            {% if form.name8.errors %}
-              {% for error in form.name8.errors %}
-              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
-              {% endfor %}
-            {% endif %}
-          </div>
-        </div>
         <div class="d-grid col-3 mx-auto">
           {{form.submit(class="btn btn-danger btn-lg")}}
         </div>
@@ -94,11 +76,21 @@
 
 <!-- Result Section -->
 <div class="container-fluid blue-section id="resultArea">
+
+  <div class="descriptions p-3 pb-md-4 mx-auto text-center">
+    <h2 class="display-6 fw-normal">How to use this tool?</h2>
+    <p class="fs-5 text-white">You need to enter names (up to 6) and press the "Generate" button. This tool will pick up one letter from each name you provided and combine them in various ways.</p>
+  </div>
 {% if results!=None %}
   <div class="descriptions p-3 pb-md-4 mx-auto text-center">
     <h2 class="display-6 fw-normal">About the words ranking</h2>
     <p class="fs-5 text-white">This tool will return a list of words as the result. Those words are ranked according to the Google Web Trillion Word Corpus. You can find more information about how the dataset was created <a href="http://norvig.com/ngrams/" class="text-reset">here</a>.</p>
   </div>
+  {% if inputDisplay!=None %}
+  <div class="descriptions p-3 pb-md-4 mx-auto text-center">
+    <h2 class="display-6 fw-normal text-white">{{inputDisplay}}</h2>
+  </div>
+  {% endif %}
   {% for result in results %}
     <div class="accordion" id="accordionFlushExample">
       <div class="accordion-item">
@@ -113,11 +105,7 @@
       </div>
     </div>
   {% endfor %}
-{% else %}
-<div class="descriptions p-3 pb-md-4 mx-auto text-center">
-  <h2 class="display-6 fw-normal">How to use this tool?</h2>
-  <p class="fs-5 text-white">You need to enter names (up to 8) and press the "Generate" button. This tool will pick up one letter from each name you provided and combine them in various ways.</p>
-</div>
+
 {% endif %}
 </div>
 

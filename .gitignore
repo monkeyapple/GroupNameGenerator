@@ -1,5 +1,10 @@
 *.zip
 /assets
-*.DS_Store
+.DS_Store
 *.ipynb
 *.csv
+/flaskdeploy
+__pycache__
+*.pyc
+.idea
+.ipynb_checkpoints
