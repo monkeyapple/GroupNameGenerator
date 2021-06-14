@@ -6,10 +6,10 @@
   <p></p>
   <form method="POST">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 align-self-center">
         <h1>Choose a great group name generated from names you provide</h1>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 align-self-center">
         {{form.hidden_tag()}}
         <div class="nameInput row">
           <div class="col">
@@ -47,28 +47,16 @@
             {% endif %}
           </div>
         </div>
-        <div class="nameInput row">
-          <div class="col">
-            {{form.name5.label(class="form-control-label")}}{{form.name5(class="form-control")}}
-            {% if form.name5.errors %}
-              {% for error in form.name5.errors %}
-              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
-              {% endfor %}
-            {% endif %}
-          </div>
-          <div class="col">
-            {{form.name6.label(class="form-control-label")}}{{form.name6(class="form-control")}}
-            {% if form.name6.errors %}
-              {% for error in form.name6.errors %}
-              <span style="color:#dc3545;font-size:0.8rem;">{{error}}</span>
-              {% endfor %}
-            {% endif %}
+        <!-- <div class="generateButton"> -->
+          <!-- <div class="d-grid col-3 mx-auto"> -->
+        <div class="nameInput row text-center ">
+          <div>
+            {{form.submit(class="btn btn-danger btn-lg")}}
           </div>
         </div>
-        <div class="d-grid col-3 mx-auto">
-          {{form.submit(class="btn btn-danger btn-lg")}}
-        </div>
+        <!-- </div> -->
       </div>
+
     </div>
   </form>
 </div>
@@ -78,17 +66,17 @@
 <div class="container-fluid blue-section id="resultArea">
 
   <div class="descriptions p-3 pb-md-4 mx-auto text-center">
-    <h2 class="display-6 fw-normal">How to use this tool?</h2>
-    <p class="fs-5 text-white">You need to enter names (up to 6) and press the "Generate" button. This tool will pick up one letter from each name you provided and combine them in various ways.</p>
+    <h2>How to use this tool?</h2>
+    <p class="fs-5 text-white">You need to enter names (up to 4) and press the "Generate" button. This tool will pick up one letter from each name you provided and combine them in various ways.</p>
   </div>
 {% if results!=None %}
   <div class="descriptions p-3 pb-md-4 mx-auto text-center">
-    <h2 class="display-6 fw-normal">About the words ranking</h2>
+    <h2>About the words ranking</h2>
     <p class="fs-5 text-white">This tool will return a list of words as the result. Those words are ranked according to the Google Web Trillion Word Corpus. You can find more information about how the dataset was created <a href="http://norvig.com/ngrams/" class="text-reset">here</a>.</p>
   </div>
   {% if inputDisplay!=None %}
-  <div class="descriptions p-3 pb-md-4 mx-auto text-center">
-    <h2 class="display-6 fw-normal text-white">{{inputDisplay}}</h2>
+  <div class="descriptions mx-auto text-center">
+    <h2 class="text-white bg-danger">{{inputDisplay}}</h2>
   </div>
   {% endif %}
   {% for result in results %}
@@ -166,16 +154,7 @@
       <p>© Copyright 2021 GroupNameGenerator</p>
     </section>
   </div>
-    <!-- Section: Social media -->
 
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <!-- <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0);">
-    © 2021 Copyright:
-    <a class="text-white" href="#">effyh.com</a>
-  </div> -->
-  <!-- Copyright -->
   </footer>
 </div>
 {% endblock %}

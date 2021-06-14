@@ -7,14 +7,14 @@ body{
 
 h1{
   font-family:'Montserrat',sans-serif;
-  font-size:3.5rem;
+  font-size:3.1rem;
   line-height:1.5;
   font-weight:900;
 }
 
 h2{
   font-family:'Montserrat',sans-serif;
-  font-size:3.0rem;
+  font-size:2.2rem;
   line-height:1.5;
   font-weight:400;
 }
@@ -27,7 +27,7 @@ p{
 /* sections */
 .yellow-section{
   background-color: #f5f7b2;
-  padding:3% 10%;
+  padding:3% 8%;
   color:#1cc5dc;
 }
 
@@ -49,6 +49,9 @@ p{
   max-width: 700px;
   color:#fff
 }
+
+
+/* Result Area */
 .accordion-button{
   color:#fff;
   font-family:'Montserrat',sans-serif;
