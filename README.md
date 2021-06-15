@@ -13,5 +13,3 @@ WebApp Link : https://namegenerator-monkeyapple.herokuapp.com/
 ## Preview
 ![Screenshot](/images/index.png)
 
-## License
-GPL v3 license
