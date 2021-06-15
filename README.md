@@ -8,7 +8,7 @@ V1.0
 * Combine 4 words(up to 8 characters for each) into 1 4-letter existing English words
 
 ## How to use
-WebApp Link : https://namegenerator-monkeyapple.herokuapp.com/
+WebApp Link : https://groupnamegenerator.herokuapp.com/
 
 ## Preview
 ![Screenshot](/images/index.png)
