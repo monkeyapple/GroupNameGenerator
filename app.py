@@ -73,10 +73,5 @@ def index():
         return redirect(url_for('index'))
     return render_template('index.html',form=form,results=session.get('result',None),wordDict=wordDict,inputDisplay=session.get('inputDisplay',None))
 
-@app.route('/result')
-def result():
-    return render_template('result.html')
-
-
 if __name__ == '__main__':
     app.run(debug=True)
