@@ -1,5 +1,5 @@
 # Group Name Generator
-**GroupNameGenerator** is a tool for generating existing English words based on the words you provided.
+**GroupNameGenerator** is a tool for generating permutations of words you provided. 
 
 ## Current Version
 V1.0
